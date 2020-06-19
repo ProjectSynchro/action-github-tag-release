@@ -1,0 +1,20 @@
+name: GitHub Tag and Release
+description: Create a GitHub release from the current commit
+author: Kevin Hwang <hellokevinhwang@gmail.com>
+branding:
+  icon: tag
+  color: white
+inputs:
+  github_token:
+    description: GitHub token with write access scope to the current repository
+    required: true
+  name:
+    description: Name of release. Defaults to %YYYY.%mm.%dd-${GIT_HASH}-RELEASE
+    required: false
+  path:
+    description: Optional asset to attach to the release
+    required: false
+
+runs:
+  using: docker
+  image: Dockerfile
